@@ -34,4 +34,6 @@ def action1():
 if __name__ == "__main__":
 	app.run(host='0.0.0.0', port=3333)
 
+#docker build -t test_flask:latest .
+
 #docker run -it -p 6666:3333 --volume "/home/ssd/Downloads/simple:/home/ssd/Downloads/simple:rw" -w="/home/ssd/Downloads/simple" simple-search
