@@ -1,5 +1,6 @@
 import flask
 import requests
+import json
 import os
 
 app = flask.Flask(__name__)
@@ -16,15 +17,15 @@ def hello_world():
 
 @app.route('/search', methods=["GET"])
 def action1():
-	print(flask.request.args)
+	# print(flask.request.args)
 	api_key = '1f09de1bd3cbbfaa45a35846ec346592e620622f'
-	r = requests.get(url = 'http://www.giantbomb.com/api/search/?api_key=1f09de1bd3cbbfaa45a35846ec346592e620622f&format=json&query="metroid prime"&resources=game',
+	fields = 'name,aliases,developers,genres,original_release_date,original_game_rating'
+	r = requests.get(url = 'http://www.giantbomb.com/api/search/?api_key='+api_key+'&format=json&query="metroid prime"&resources=game&field_list='+fields,
 					 headers={'user-agent':'newcoder'})
 
 	# extracting data in json format
-	print(r.__dict__)
-	# print(vars(r).keys())
-	# print(r.reason)
+	data = json.loads(r.text)
+	print(data)
 	# print(r.request)
 	# query = flask.request.args.get("query")
 	# game = flask.request.args.get("game")
