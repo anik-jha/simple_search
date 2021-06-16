@@ -1,0 +1,1 @@
+aws lightsail create-container-service --service-name simple-search-service \ --power small --scale 1
