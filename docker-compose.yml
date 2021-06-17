@@ -1,0 +1,7 @@
+version: '3'
+
+services:
+  searchapp:
+    build: ./searchapp-docker
+    container_name: searchapp
+    network_mode: host
