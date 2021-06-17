@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Search results</title>
+</head>
+<body>
+<a href="/searchGames">Home</a>
+<br>
+<br>
+{{no_of_results}} results found
+<br>
+<br>
+<table border="1">
+    <tr>
+        <th> Name </th>
+        <th> Aliases </th>
+        <th> Developers </th>
+        <th> Genres </th>
+        <th> Original release date </th>
+        <th> Original game rating </th>
+    </tr>
+  {% for item in items %}
+      <tr>
+          <td> {{item.name}} </td>
+          <td> {{item.aliases}} </td>
+          <td> {{item.developers}} </td>
+          <td> {{item.genres}} </td>
+          <td> {{item.original_release_date}} </td>
+          <td> {{item.original_game_rating}} </td>
+      </tr>
+  {% endfor %}
+</table>
+</body>
+</html>
