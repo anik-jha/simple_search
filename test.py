@@ -6,7 +6,7 @@ app = Flask(__name__)
 
 @app.route('/')
 def home():
-    return "Hello, this is a search app. Navigate to /searchGames to start searching."
+    return render_template('home.html')
 
 
 @app.route('/searchGames', methods=["GET", "POST"])
