@@ -10,11 +10,15 @@ def search_giant_bomb(api_key, query):
     if api_key is (None or ''):
         api_key = API_KEY
 
-    # querying giant bomb api
-    result = requests.get(url=GIANT_BOMB_SEARCH_URL + '?api_key=' + api_key + '&format=json&query="' + query +
-                              '"&resources=game&field_list=' + FIELDS,
-                          headers={'user-agent': 'newcoder'})
+    try:
+        # querying giant bomb api
+        result = requests.get(url=GIANT_BOMB_SEARCH_URL + '?api_key=' + api_key + '&format=json&query="' + query +
+                                  '"&resources=game&field_list=' + FIELDS,
+                              headers={'user-agent': 'newcoder'})
 
-    # extracting data in json format
-    data = json.loads(result.text)
+        # extracting data in json format
+        data = json.loads(result.text)
+    except:
+        data = {}
+        data["error"] = "ERROR"
     return data

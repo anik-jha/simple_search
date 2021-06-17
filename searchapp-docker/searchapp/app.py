@@ -18,5 +18,8 @@ def searchGames():
 
         # calling search service
         data = search_giant_bomb(api_key, query)
-        return render_template('output.html', items=data["results"], no_of_results=data["number_of_total_results"])
+        if data["error"] == "OK":
+            return render_template('output.html', items=data["results"], no_of_results=data["number_of_total_results"])
+        else:
+            return 'Error occurred while searching'
     return render_template('home.html')
