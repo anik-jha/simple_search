@@ -1,5 +1,0 @@
-aws lightsail create-container-service-deployment --service-name simple-search-service \ --power small --scale 1
-
-aws lightsail create-container-service --service-name flask-service \ --power small --scale 1
-
-docker login: akjha1418 Anik@1418
